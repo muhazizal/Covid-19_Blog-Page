@@ -3,23 +3,23 @@
 :root {
   --bg-color: #f8f4ff;
   --font-color: #303663;
+  --font-hover-color: #6b77c5;
   --btn-color: #227965;
   --btn-hover-color: #1b584a;
   --btn-active-color: #184b3f;
   --btn-shadow-color: #a5d1c6;
   --card-shadow-color: #9db1ac;
   --text-link-color: #227965;
-  
   font-family: 'Hind', sans-serif;
   font-size: 62.5%;
 }
 
+/* Mobile First Design */
 * { box-sizing: border-box; }
 
 body {
   display: flex;
   flex-direction: column;
-
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -45,12 +45,12 @@ nav#home {
   color: var(--font-color);
   text-decoration: none;
   display: none;
-  padding: 1.5rem 3rem 0 0;
+  margin: 1.5rem 3rem 0 0;
 }
 
 .navbar li #home {
   display: inherit;
-  padding-left: 3rem;
+  margin-left: 3rem;
   font-weight: 600;
   font-size: 2.4rem;
   color: var(--text-link-color);
@@ -59,33 +59,32 @@ nav#home {
 .navbar .icon-toggle {
   float: right;
   display: block;
-  padding: 0 3rem 0 0;
+  margin: 0 3rem 0 0;
   height: 32px;
 }
 
 /* Active when toggle icon clicked */
-.navbar.responsive { position: relative; }
+.navbar.active { position: relative; }
 
-.navbar.responsive .icon-toggle {
+.navbar.active .icon-toggle {
   position: absolute;
   right: 0;
   top: 0;
 }
 
-.navbar.responsive li a {
+.navbar.active li a {
   float: none;
   display: block;
   text-align: right;
 }
+/* Active when toggle icon clicked */
 
 .jumbotron {
   max-width: 90%;
   margin: 0 auto;
 }
 
-.jumbotron #title {
-  margin: 3rem 0;
-}
+.jumbotron #title { margin: 3rem 0; }
 
 .jumbotron #title-desc {
   max-width: 80%;
@@ -109,9 +108,10 @@ main {
   box-shadow: 0 5px 10px -3px var(--card-shadow-color);
 }
 
-.desc-article h2, .desc-article p {
-  margin: 1rem auto 0 auto;
-}
+.hero-article { max-width: 40%; }
+
+.desc-article h2,
+.desc-article p { margin: 1rem auto 0 auto; }
 
 .btn-explore {
   margin: 2rem 0 0 0;
@@ -128,13 +128,7 @@ main {
   cursor: pointer;
 }
 
-.btn-explore:active {
-  background-color: var(--btn-active-color);
-}
-
-.hero-article {
-  max-width: 40%;
-}
+.btn-explore:active { background-color: var(--btn-active-color); }
 
 #creator-img {
   max-width: 250px;
@@ -148,8 +142,19 @@ main {
   text-align: left;
 }
 
-#information table th {
-  padding: 0 1rem 0 0;
+#information table th { padding: 0 1rem 0 0; }
+
+.sosmed-img {
+  width: 32px;
+  margin: 0 1.5rem;
+}
+
+footer h3,
+footer p { margin: 1rem 0; }
+
+footer {
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--font-color);
 }
 
 .text-link {
@@ -157,41 +162,9 @@ main {
   color: var(--text-link-color);
 }
 
-.text-link:hover {
-  text-decoration: underline;
-}
-
-.sosmed-img {
-  width: 32px;
-  margin: 0 1.5rem;
-}
-
-footer h3, footer p {
-  margin: 1rem 0;
-}
-
-footer {
-  padding: 1.6rem 0;
-  border-top: 1px solid var(--font-color);
-}
-
 /* Small Screen */
 @media screen and (min-width: 576px) {
-  main {
-    max-width: 540px;
-  }
-
-  .navbar li #home {
-    padding-left: 5rem;
-  }
-
-  .navbar.responsive li a {
-    padding-right: 5rem;
-  }
-
-  .navbar .icon-toggle {
-    padding-right: 5rem;
-  }
+  main { max-width: 540px; }
   
   .card {
     overflow: auto;
@@ -200,58 +173,50 @@ footer {
     flex-wrap: wrap;
   }
 
-  .hero-article {
-    margin: auto 0;
-  }
+  .hero-article { margin: auto 0; }
 
   .desc-article {
     width: 60%;
     text-align: center;
   }
 
-  .desc-article h2 {
-    margin: 0 auto;
-  }
+  .desc-article h2 { margin: 0 auto; }
 
-  .desc-article p {
-    width: 90%;
-  }
+  .desc-article p { width: 90%; }
 
-  #profile-card {
-    flex-direction: column;
-  }
+  #profile-card { flex-direction: column; }
 }
 
 /* Medium Screen */
 @media screen and (min-width: 768px) {
-  main {
-    max-width: 720px;
-  }
+  main { max-width: 720px; }
   
-  .navbar {
-    text-align: center;
-  }
+  .navbar { text-align: center; }
   
   .navbar li a {
     display: inline;
-    padding: 1.5rem 2rem 0 2rem;
+    margin: 1.5rem 2rem 0 2rem;
   }
 
-  .navbar li #home {
-    padding-left: 0;
+  .navbar li a:hover {
+    border-bottom: 2.5px solid var(--btn-hover-color);
+    color: var(--font-hover-color);
   }
 
-  .navbar .icon-toggle {
-    display: none;
+  .navbar li a:active {
+    color: var(--font-color);
   }
+
+  .navbar li #home { padding-left: 0; }
+
+  .navbar .icon-toggle { display: none; }
 
   .jumbotron {
-    max-width: 720px;
-    margin: 3rem auto 0 auto;
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    max-width: 720px;
+    margin: 3rem auto 0 auto;
   }
 
   .jumbotron #title-container {
@@ -266,18 +231,15 @@ footer {
     font-size: 3.2rem;
   }
 
-  .jumbotron #title-desc {
-    max-width: 80%;
-    margin: 0;
-  }
+  .jumbotron #title-desc { margin: 0; }
 
-  .jumbotron #title-img {
-    max-width: 60%;
-  }
+  .jumbotron #title-img { max-width: 60%; }
 }
 
 /* Large Screen */
 @media screen and (min-width: 992px) {
+  .navbar li a { margin: 1.5rem 2.5rem 0 2.5rem; }
+
   main {
     max-width: 960px;
     box-shadow: 0 5px 10px 1px var(--card-shadow-color);
@@ -297,50 +259,28 @@ footer {
     padding-left: 2rem;
   }
 
-  .jumbotron {
-    max-width: 960px;
-  }
+  .jumbotron { max-width: 960px; }
 
-  .jumbotron #title-container {
-    margin: auto auto auto 0;
-  }
+  .jumbotron #title-container { margin: auto auto auto 0; }
 
-  .jumbotron #title-img {
-    max-width: 50%;
-  }
-
-
+  .jumbotron #title-img { max-width: 50%; }
 }
 
 /* Extra Large Screen */
 @media screen and (min-width: 1200px) {
-  main {
-    max-width: 1140px;
-  }
+  .navbar li a { margin: 1.5rem 3rem 0 3rem; }
+  
+  main { max-width: 1140px; }
 
-  main #content {
-    max-width: 60%;
-  }
+  main #content { max-width: 60%; }
 
-  main #profile {
-    max-width: 40%;
-  }
+  main #profile { max-width: 40%; }
 
-  .jumbotron {
-    max-width: 1140px;
-  }
+  .jumbotron { max-width: 1140px; }
 
-  .jumbotron #title {
-    font-size: 4.8rem;
-  }
+  .jumbotron #title { font-size: 4.8rem; }
 
-  .jumbotron #title-desc {
-    max-width: 90%;
-  }
+  .jumbotron #title-desc { max-width: 90%; }
 
-  .jumbotron #title-img {
-    max-width: 45%;
-  }
-
-
+  .jumbotron #title-img { max-width: 45%; }
 }

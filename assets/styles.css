@@ -80,28 +80,29 @@ nav#home {
 /* Active when toggle icon clicked */
 
 .jumbotron {
-  max-width: 90%;
+  width: 90%;
   margin: 0 auto;
 }
 
 .jumbotron #title { margin: 3rem 0; }
 
 .jumbotron #title-desc {
-  max-width: 80%;
+  width: 80%;
   margin: 0 auto 3rem auto;
 }
 
 .jumbotron #title-img {
-  max-width: 300px;
+  max-width: 65%;
   height: auto;
 }
 
 main {
-  max-width: 90%;
+  width: 90%;
   margin: 5rem auto;
 }
 
 .card {
+  width: 100%;
   margin: 0 0 3rem 0;
   padding: 2rem;
   border-radius: 8px;
@@ -109,6 +110,11 @@ main {
 }
 
 .hero-article { max-width: 40%; }
+
+.desc-article { 
+  width: 80%; 
+  margin: 0 auto;
+}
 
 .desc-article h2,
 .desc-article p { margin: 1rem auto 0 auto; }
@@ -130,8 +136,10 @@ main {
 
 .btn-explore:active { background-color: var(--btn-active-color); }
 
+#profile { position: relative; }
+
 #creator-img {
-  max-width: 250px;
+  max-width: 70%;
   height: auto;
   border-radius: 100%;
 }
@@ -164,7 +172,10 @@ footer {
 
 /* Small Screen */
 @media screen and (min-width: 576px) {
-  main { max-width: 540px; }
+  .jumbotron #title-img { 
+    width: 65%;
+    max-width: 400px; 
+  }
   
   .card {
     overflow: auto;
@@ -173,24 +184,27 @@ footer {
     flex-wrap: wrap;
   }
 
-  .hero-article { margin: auto 0; }
+  .hero-article { 
+    margin: auto;
+  }
 
   .desc-article {
-    width: 60%;
+    width: 50%;
     text-align: center;
   }
 
-  .desc-article h2 { margin: 0 auto; }
-
-  .desc-article p { width: 90%; }
+  .desc-article h2,
+  .desc-article p { 
+    width: 90%;
+  }
 
   #profile-card { flex-direction: column; }
+
+  #creator-img { max-width: 280px; }
 }
 
 /* Medium Screen */
 @media screen and (min-width: 768px) {
-  main { max-width: 720px; }
-  
   .navbar { text-align: center; }
   
   .navbar li a {
@@ -215,7 +229,7 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 720px;
+    width: 80%;
     margin: 3rem auto 0 auto;
   }
 
@@ -233,15 +247,44 @@ footer {
 
   .jumbotron #title-desc { margin: 0; }
 
-  .jumbotron #title-img { max-width: 60%; }
+  .jumbotron #title-img { 
+    width: 60%;
+    max-width: 400px;
+  }
+
+  .desc-article { width: 50%; }
+
+  .hero-article {
+    width: 40%;
+    max-width: 300px;
+  }
 }
 
 /* Large Screen */
 @media screen and (min-width: 992px) {
   .navbar li a { margin: 1.5rem 2.5rem 0 2.5rem; }
 
+  .jumbotron #title-container { margin: auto auto auto 0; }
+  
+  .jumbotron #title-img { 
+    width: 50%;
+    max-width: 450px;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .hero-article {
+    width: 60%;
+    margin-bottom: 1.5rem;
+  }
+
+  .desc-article {
+    width: 90%;
+  }
+
   main {
-    max-width: 960px;
     box-shadow: 0 5px 10px 1px var(--card-shadow-color);
     border-radius: 8px;
     padding: 3rem;
@@ -249,38 +292,22 @@ footer {
   }
 
   main #content {
-    max-width: 55%;
+    width: 50%;
     float: left;
   }
 
   main #profile {
-    max-width: 45%;
+    width: 50%;
     float: right;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
   }
-
-  .jumbotron { max-width: 960px; }
-
-  .jumbotron #title-container { margin: auto auto auto 0; }
-
-  .jumbotron #title-img { max-width: 50%; }
 }
 
 /* Extra Large Screen */
 @media screen and (min-width: 1200px) {
   .navbar li a { margin: 1.5rem 3rem 0 3rem; }
-  
-  main { max-width: 1140px; }
-
-  main #content { max-width: 60%; }
-
-  main #profile { max-width: 40%; }
-
-  .jumbotron { max-width: 1140px; }
 
   .jumbotron #title { font-size: 4.8rem; }
 
   .jumbotron #title-desc { max-width: 90%; }
-
-  .jumbotron #title-img { max-width: 45%; }
 }

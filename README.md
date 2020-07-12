@@ -1,1 +1,2 @@
-# Covid-19_Blog-Page
+# covid19-blog-page
+First project from learning basic web programming
